@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-	<head>
-		<meta charset="UTF-8">
-		<title>Insert title here</title>
-	</head>
-	<body>
-		<table>
-			<thead>
-				<tr>Id</tr>
-				<tr>Nome</tr>
-				<tr>Sigla</tr>
-				<tr>Ação</tr>
-			</thead>
-			<tbody th:each="estado: ${listaEstados}" >
-				<tr>
-					<td th:text="${estado.id}"></td>
-					<td th:text="${estado.nome}"></td>
-					<td th:text="${estado.sigla}"></td>
-					<td colspan="2">
-						<a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a>
-						<a th:href="@{/removerEstado/{id}(id=${estado.id})}">Apagar</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRla0sOBNaMZhbffH_Z3om-SP-FMBd6_ok9GA&s" alt="Bootstrap" width="30" height="24">
+            <a class="navbar-brand" href="#">Sistema Vendas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Pesquisar</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+       		<table class="table">
+				<thead>
+					<tr>
+						<td>Id</td>
+						<td>Nome</td>
+						<td>Sigla</td>
+						<td>Ação</td>
+					</tr>
+				</thead>
+				<tbody th:each="estado: ${listaEstados}" >
+					<tr>
+						<td th:text="${estado.id}"></td>
+						<td th:text="${estado.nome}"></td>
+						<td th:text="${estado.sigla}"></td>
+						<td colspan="2">
+							<a th:href="@{/editarEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-pen-to-square"></i></a>
+							<a th:href="@{/removerEstado/{id}(id=${estado.id})}"><i class="fa-solid fa-trash-can" style="color: #FF0000"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+            <a class="btn btn-danger" href="/administrativo">Voltar</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
 </html>
