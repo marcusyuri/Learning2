@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>Id</tr>
+				<tr>Nome</tr>
+				<tr>Sigla</tr>
+				<tr>Ação</tr>
+			</thead>
+			<tbody th:each="estado: ${listaEstados}" >
+				<tr>
+					<td th:text="${estado.id}"></td>
+					<td th:text="${estado.nome}"></td>
+					<td th:text="${estado.sigla}"></td>
+					<td colspan="2">
+						<a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a>
+						<a th:href="@{/removerEstado/{id}(id=${estado.id})}">Apagar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
 </html>
